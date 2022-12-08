@@ -1,0 +1,41 @@
+﻿@page
+@model BubsPizzaria.Pages.PizzaModel
+@{
+}
+
+<div class="text-center">
+     <div class="mainText">
+        <h1 class="display-4 fw-bold ">Our great selection of Pizzas</h1>
+        <h4 class="display-5">Choose one, or try our new pizza builder!</h4>
+        <p class="smallText"><i> Only one pizza per order</i></p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 mt-5">
+                <div class="w-100 row myOwnDiv">
+                    <div class="col-4">
+                        <img src="~/images/Pizzas/Create.png" class="w-100" />
+                    </div>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle myOwnText">
+                            <h3 style="text-align:left;"> Create your own pizza</h3>
+                            <p style="text-align:left;">Make your own pizza!</p>
+                            <a class="btn btn-warning" style="float:left" asp-area="" asp-page="Forms/CustomPizza">Create your own!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @foreach (var pizza in Model.mockPizzaDB)
+            {
+                var imagePath = "~/images/Pizzas/" + (pizza.ImageTitle + ".png");
+                <div class="col-4 mb-5">
+
+                    <img src="@imagePath" class="w-100" asp-append-version="true" />
+                    <a class="btn btn-secondary mt-1" asp-area="" asp-page="Checkout/Checkout" asp-route-ImageTitle="@pizza.ImageTitle" asp-route-PizzaPrice="@pizza.FinalPrice">Get this pizza!</a>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>
