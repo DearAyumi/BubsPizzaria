@@ -28,7 +28,7 @@ namespace BubsPizzaria.Pages.Checkout
             }
 
             PizzaOrders pizzaOrders = new PizzaOrders();
-            pizzaOrders.PizzaName = CustomerName;
+            pizzaOrders.PizzaName = ImageTitle;
             pizzaOrders.BasePrice = PizzaPrice;
 
             _context.PizzaOrder.Add(pizzaOrders);
